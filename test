@@ -11,7 +11,26 @@ def programm_start ():
     print """------------------------------------------------------"""
     
     sleep(1)
-    print"test"
+    seiten =int( raw_input("Anzahl der Seiten: "))
+    
+    pupil = int(raw_input("Anzahl der Schueler: "))
+
+    tests = int(raw_input("Anzahl der Tests: "))
+
+    wuerfe(seiten)
+
+
+def wuerfe(x):
+    wurf = randint(1,x)
+    print wurf
+    weiter = raw_input("nochmal j/n: ")
+    if weiter == "j":
+        programm_start()
+    else:
+        print "Programm wird beebdet..."
+        sleep(1)
+        print "ENDE"
+    
     
     
 programm_start()
