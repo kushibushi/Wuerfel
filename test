@@ -1,0 +1,17 @@
+# Programm zur Darstellung prozentualer Verteilung
+# eins x- seitigen Wuerfels
+
+from random import randint
+from time import sleep
+
+def programm_start ():
+    print """------------------------------------------------------"""
+    print """   Programm zur Darstellung prozentualer Verteilung
+               eines x- seitigenen Wuerfels"""
+    print """------------------------------------------------------"""
+    
+    sleep(1)
+    print"test"
+    
+    
+programm_start()
