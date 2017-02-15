@@ -4,33 +4,54 @@
 from random import randint
 from time import sleep
 
-def programm_start ():
+
+ergebnis_liste = []
+
+def programm_start():
     print """------------------------------------------------------"""
     print """   Programm zur Darstellung prozentualer Verteilung
                eines x- seitigenen Wuerfels"""
     print """------------------------------------------------------"""
-    
+
     sleep(1)
-    seiten =int( raw_input("Anzahl der Seiten: "))
-    
+    seiten = int(raw_input("Anzahl der Seiten: "))
+
     pupil = int(raw_input("Anzahl der Schueler: "))
 
     tests = int(raw_input("Anzahl der Tests: "))
 
-    wuerfe(seiten)
+    wuerfe(seiten,pupil,tests)
 
 
-def wuerfe(x):
-    wurf = randint(1,x)
-    print wurf
-    weiter = raw_input("nochmal j/n: ")
+def wuerfe(seiten,pupil,tests):
+    mehr_als_schueler = 0
+
+
+    for i in range(1,tests+1):
+        wurf = randint(1, seiten)
+        if wurf > pupil:
+            mehr_als_schueler += 1
+        else:
+            ergebnis_liste.append(wurf)
+    ergebnis_liste.sort()
+    for i in ergebnis_liste:
+        anzahl = ergebnis_liste.count(i)
+        print "%s wurde %s mal gewuerfelt, das entspricht %s Prozent" % (i, anzahl,anzahl * 100/tests)
+
+    print "Es wurde zu hoch gewuerfelt: " + str(mehr_als_schueler)
+    weiter = raw_input("Noch einen Test?(j/n)")
     if weiter == "j":
         programm_start()
     else:
-        print "Programm wird beebdet..."
+        print "Programm wird beendet..."
         sleep(1)
         print "ENDE"
-    
-    
-    
+
+
+
+
+
+
+
 programm_start()
+
