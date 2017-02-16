@@ -5,7 +5,7 @@ from random import randint
 from time import sleep
 
 
-ergebnis_liste = []
+
 
 def programm_start():
     print """------------------------------------------------------"""
@@ -25,7 +25,7 @@ def programm_start():
 
 def wuerfe(seiten,pupil,tests):
     mehr_als_schueler = 0
-
+    ergebnis_liste = []
 
     for i in range(1,tests+1):
         wurf = randint(1, seiten)
@@ -41,17 +41,14 @@ def wuerfe(seiten,pupil,tests):
     print "Es wurde zu hoch gewuerfelt: " + str(mehr_als_schueler)
     weiter = raw_input("Noch einen Test?(j/n)")
     if weiter == "j":
+        test = 0
+        pupil = 0
+        seiten = 0
         programm_start()
     else:
         print "Programm wird beendet..."
         sleep(1)
         print "ENDE"
-
-
-
-
-
-
 
 programm_start()
 
