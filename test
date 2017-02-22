@@ -26,7 +26,7 @@ def programm_start():
 def wuerfe(seiten,pupil,tests):
     mehr_als_schueler = 0
     ergebnis_liste = []
-
+    liste_ohne_doppelte = []
     for i in range(1,tests+1):
         wurf = randint(1, seiten)
         if wurf > pupil:
@@ -34,21 +34,31 @@ def wuerfe(seiten,pupil,tests):
         else:
             ergebnis_liste.append(wurf)
     ergebnis_liste.sort()
-    for i in ergebnis_liste:
-        anzahl = ergebnis_liste.count(i)
-        print "%s wurde %s mal gewuerfelt, das entspricht %s Prozent" % (i, anzahl,anzahl * 100/tests)
+    for y in ergebnis_liste:
+        anzahl = ergebnis_liste.count(y)
+        if y not in liste_ohne_doppelte:
+            liste_ohne_doppelte.append(y)
+            print "%s wurde %s mal gewuerfelt, das entspricht %s Prozent" % (y, anzahl,anzahl * 100/tests)
 
     print "Es wurde zu hoch gewuerfelt: " + str(mehr_als_schueler)
     weiter = raw_input("Noch einen Test?(j/n)")
     if weiter == "j":
-        test = 0
+        tests = 0
         pupil = 0
         seiten = 0
+
+
         programm_start()
     else:
         print "Programm wird beendet..."
         sleep(1)
         print "ENDE"
+
+
+
+
+
+
 
 programm_start()
 
